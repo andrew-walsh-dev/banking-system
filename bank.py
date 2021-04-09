@@ -24,9 +24,8 @@ def generate_card():
 
 def validate_card(number, pin):
     for card in cards:
-        if card.number == number:
-            if pin == card.pin:
-                return card
+        if card.number == number and card.pin == pin:
+            return card
     return False
 
 
@@ -42,8 +41,8 @@ while not quit:
         if choice == 1:
             generate_card()
         elif choice == 2:
-            user_card_number = int(input("Enter your card's number: \n"))
-            user_card_pin = int(input("Enter your card's pin: \n"))
+            user_card_number = input("Enter your card's number: \n")
+            user_card_pin = input("Enter your card's pin: \n")
             current_card = validate_card(user_card_number, user_card_pin)
             if not current_card:
                 print("Error: Wrong card number or PIN.")
