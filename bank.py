@@ -13,7 +13,7 @@ class Card:
 def generate_card():
     card_num = "-1"
     while taken_numbers.get(card_num) is not None:  
-        card_num = "400000" + str(random.randint(0000000000, 9999999999))
+        card_num = "400000" + str(random.randint(1000000000, 9999999999))
     card_pin = str(random.randint(0000, 9999))
     taken_numbers[card_num] = True
     cards.append(Card(card_num, card_pin))
