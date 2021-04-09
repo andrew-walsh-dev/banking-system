@@ -13,13 +13,15 @@ class Card:
 def generate_card():
     card_num = "-1"
     while taken_numbers.get(card_num) is not None:  
-        card_num = "400000" + str(random.randint(0000000000, 9999999999))
+        card_num = "400000" + str(random.randint(1000000000, 9999999999))
     card_pin = str(random.randint(0000, 9999))
     taken_numbers[card_num] = True
     cards.append(Card(card_num, card_pin))
     print("\nYour card has been created.")
-    print("Your card's number: {}".format(card_num))
-    print("Your card's pin: {}".format(card_pin))
+    print("Your card's number:")
+    print(card_num)
+    print("Your card's pin:")
+    print(card_pin)
     return 0
 
 def validate_card(number, pin):
@@ -32,7 +34,7 @@ def validate_card(number, pin):
 while not quit:
     #Sequence for user that is not logged into a card
     if not logged_in:
-        print("1. Create an account")
+        print("\n1. Create an account")
         print("2. Log into account")
         print("0. Exit")
         choice = -1
@@ -41,7 +43,7 @@ while not quit:
         if choice == 1:
             generate_card()
         elif choice == 2:
-            user_card_number = input("Enter your card's number: \n")
+            user_card_number = input("\nEnter your card's number: \n")
             user_card_pin = input("Enter your card's pin: \n")
             current_card = validate_card(user_card_number, user_card_pin)
             if not current_card:
@@ -54,7 +56,7 @@ while not quit:
             quit = True
     #Sequence for user that is logged in 
     else:
-        print("1. Balance")
+        print("\n1. Balance")
         print("2. Logout")
         print("0. Exit")
         choice = -1
